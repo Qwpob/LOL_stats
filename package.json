@@ -1,0 +1,14 @@
+{
+  "name": "lol-match-tracker",
+  "version": "1.0.0",
+  "description": "A League of Legends match tracker with a Node.js proxy backend and a web frontend.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoL Match Tracker</title>
+    <link rel="preconnect" href="https://ddragon.leagueoflegends.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">⚔️</span>
+        <h1>LoL Match Tracker</h1>
+        <span id="mode-badge" class="badge" hidden></span>
+      </div>
+      <form id="search-form" class="search">
+        <input
+          id="name-input"
+          type="text"
+          placeholder="Game name"
+          autocomplete="off"
+          value="Dogmilk"
+        />
+        <span class="hash">#</span>
+        <input id="tag-input" type="text" placeholder="TAG" autocomplete="off" value="EUNE" />
+        <select id="region-select" title="Region" aria-label="Region">
+          <option value="EUNE" selected>EUNE</option>
+          <option value="EUW">EUW</option>
+          <option value="NA">NA</option>
+          <option value="KR">KR</option>
+          <option value="BR">BR</option>
+          <option value="LAN">LAN</option>
+          <option value="LAS">LAS</option>
+          <option value="OCE">OCE</option>
+          <option value="TR">TR</option>
+          <option value="RU">RU</option>
+          <option value="JP">JP</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+    </header>
+
+    <nav class="tabs">
+      <div class="tabs-inner container">
+        <button class="tab active" data-view="tracker" type="button">Match Tracker</button>
+        <button class="tab" data-view="guides" type="button">Bot Lane Guides</button>
+      </div>
+    </nav>
+
+    <main>
+      <div id="view-tracker" class="container">
+        <section id="profile" class="profile card" hidden></section>
+
+        <section id="stats-overview" class="overview card" hidden></section>
+
+        <section class="matches-wrap">
+          <div class="matches-head">
+            <h2>Recent Matches</h2>
+            <span id="matches-summary" class="muted"></span>
+          </div>
+          <div id="matches" class="matches"></div>
+          <div id="status" class="status"></div>
+        </section>
+      </div>
+
+      <div id="view-guides" class="container" hidden>
+        <section class="card guide-intro">
+          <h2>Bot Lane Build Guides</h2>
+          <p class="muted">
+            Curated runes, items, and matchup tips for popular ADCs. Hand-made reference (not from the
+            live API); adapt to your game state.
+          </p>
+          <div id="guide-champs" class="guide-champs"></div>
+        </section>
+
+        <section id="guide-build" class="card"></section>
+
+        <section class="matchups-wrap">
+          <h3>Lane Matchups <span class="muted">— what to expect vs common ADCs</span></h3>
+          <div id="guide-matchups" class="guide-matchups"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Not affiliated with Riot Games. Champion art via Data Dragon.</span>
+    </footer>
+
+    <script src="guides.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
